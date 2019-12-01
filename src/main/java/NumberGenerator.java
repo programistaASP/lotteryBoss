@@ -3,9 +3,6 @@ import org.apache.log4j.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.servlet.annotation.WebServlet;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -33,6 +30,11 @@ public class NumberGenerator{
                 .collect(Collectors.toSet());
 
     }
+
+    public Set<Integer> getWinningNumbers() {
+        return winningNumbers;
+    }
+
     @PostConstruct
     public void generateNumbersOnStart() {
         winningNumbers = drawWinningNumbers();
